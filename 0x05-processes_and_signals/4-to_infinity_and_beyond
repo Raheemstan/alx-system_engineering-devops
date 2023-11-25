@@ -1,0 +1,7 @@
+#!/bin/bash
+# Infinite loop displaying the message with a 2-second delay between each iteration
+
+while true; do
+    echo "To infinity and beyond"
+    sleep 2
+done

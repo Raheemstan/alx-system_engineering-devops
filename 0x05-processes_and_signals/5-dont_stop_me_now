@@ -1,0 +1,9 @@
+#!/bin/bash
+
+# Infinite loop displaying the message with a 2-second delay between each iteration and ignore SIGINT signal (Ctrl+C)
+
+trap '' SIGINT
+while true; do
+    echo "To infinity and beyond"
+    sleep 2
+done

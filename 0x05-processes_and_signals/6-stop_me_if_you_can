@@ -1,0 +1,19 @@
+#!/bin/bash
+
+# Find the process ID (PID) of 4-to_infinity_and_beyond check if the process is running and terminate it
+
+process_id=$(pgrep -f "4-to_infinity_and_beyond")
+if [ -n "$process_id" ]; then
+    echo "Terminating the process..."
+    # Sending a SIGTERM signal to gracefully terminate the process
+    kill -15 "$process_id"
+    sleep 1
+    # Check if the process is still running after termination attempt
+    if ps -p "$process_id" >/dev/null; then
+        echo "The process could not be terminated."
+    else
+        echo "The process has been terminated."
+    fi
+else
+    echo "The process is not running."
+fi
