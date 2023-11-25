@@ -1,6 +1,6 @@
 #!/bin/bash
-
 # Find the process ID (PID) of 7-highlander
+
 process_id=$(pgrep -f "7-highlander")
 
 # Define a function to handle SIGTERM signal
