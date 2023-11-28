@@ -1,3 +1,3 @@
 #!/usr/bin/env bash
-
+# this displays visitors ipaddress
 awk '{print $1, $9}' apache-access.log
