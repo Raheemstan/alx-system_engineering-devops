@@ -1,3 +1,5 @@
 #!/usr/bin/env bash
 # Display content of current directory in list format, showing names after the first dash
-ls | awk -F '-' '{print $2}'
+for file in *; do
+    echo "$file" | cut -d "-" -f 2
+done
