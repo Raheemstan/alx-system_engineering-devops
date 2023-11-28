@@ -1,5 +1,4 @@
-#!/bin/bash
-# Display headers for the process information and etch and display process information using 'ps' command
-printf "%-8s %-5s %-5s %-8s %-8s %-8s %-10s %-5s %-10s %s\n" "USER" "PID" "%CPU" "%MEM" "VSZ" "RSS" "TTY" "STAT" "START" "COMMAND"
+#!/usr/bin/env bash
+# This script displays list of currently running processes
 
-ps axo user,pid,%cpu,%mem,vsz,rss,tty,stat,start,cmd --forest | sed 1d
+ps -a -x -u -f
