@@ -1,19 +1,11 @@
-#!/bin/bash
-# Find the process ID (PID) of 7-highlander
+#!/usr/bin/env bash
+# This script displays
+# to infinity and beyond indefinitely
+# With a sleep 2 in between each iteration
+# I am invincible!!! when receiving a SIGTERM signal
 
-process_id=$(pgrep -f "7-highlander")
-
-# Define a function to handle SIGTERM signal
-handle_sigterm() {
-    echo "I am invincible!!!"
-    exit 0
-}
-
-# Trap SIGTERM signal to invoke the function
-trap handle_sigterm SIGTERM
-
-# Infinite loop displaying the message with a 2-second delay between each iteration
+trap 'echo "I am invincible!!!"' 15
 while true; do
-    echo "To infinity and beyond"
+    echo "to infinity and beyond"
     sleep 2
 done
