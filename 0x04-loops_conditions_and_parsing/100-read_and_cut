@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
 # this script displays only the following fields from /etc/passwd
-while read line; do
-    echo "$line" | cut -d':' -f 1,3,6
-done < /etc/passwd
+while IFS=':' read -r username _ uid _ home _ shell; do
+    echo "$username:$uid:$home"
+done </etc/passwd
