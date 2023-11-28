@@ -1,11 +1,10 @@
 #!/usr/bin/env bash
 # Display "Best School" 10 times, output "Hi" on the 9th iteration
-count=0
-while [ $count -lt 10 ]; do
-    if [ $count -eq 8 ]; then
+i=1
+while [ $i -le 10 ]; do
+    if [ $i = 10 ]; then
         echo "Hi"
-    else
-        echo "Best School"
     fi
-    ((count++))
+    echo "Best School"
+    i=$((i + 1))
 done
