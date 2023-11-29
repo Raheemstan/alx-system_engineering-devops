@@ -1,2 +1,4 @@
 #!/usr/bin/env ruby
-puts ARGV[0].scan(/hbt+n/).join
+
+regex = /hb?t+n/
+puts ARGV[0].scan(regex).join
