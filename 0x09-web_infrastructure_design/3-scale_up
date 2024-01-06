@@ -1,4 +1,10 @@
 image link: https://imgur.com/E9LRioM
 
 Additions:
-I have expanded our setup by including additional elements - one server and a load balancer. The introduction of the new server has enabled the segregation of individual components (such as Nginx for the web server, the code base for the application server, and MySQL for the database) onto separate servers. This configuration ensures redundancy, with an extra server housing all components as a backup in case of any component or server failure. Each server undergoes monitoring and is fortified with a firewall. Furthermore, the inclusion of an extra load balancer enhances our infrastructure's capacity to handle increased traffic across the entire system.
+
+I have expanded our setup by including additional elements - one server and a load balancer. 
+The introduction of the new server has enabled the segregation of individual components (such as Nginx for the web server, the code base for the application server, and MySQL for the database) onto separate servers. 
+This configuration ensures redundancy, with an extra server housing all components as a backup in case of any component or server failure. 
+Each server undergoes monitoring and is fortified with a firewall. 
+
+Furthermore, the inclusion of an extra load balancer enhances our infrastructure's capacity to handle increased traffic across the entire system.
