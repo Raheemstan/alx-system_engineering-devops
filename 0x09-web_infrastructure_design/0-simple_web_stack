@@ -1,0 +1,39 @@
+Image link : https://imgur.com/t1UHLfY
+
+Definitions:
+
+    Server:
+        A server, whether physical, virtual, or a computer program, provides functionality to other programs or devices known as "clients".
+
+    Role of a Domain Name:
+        A domain name serves to identify Internet resources, including computers, networks, and services, using a text-based label that is simpler to memorize than numerical addresses (IP addresses).
+
+    Type of DNS Record "www" in "www.foobar.com":
+        It is a 'CNAME' (Canonical Name) record.
+
+    Role of the Web Server:
+        A Web Server stores, processes, and displays website contents (codebase), delivering web pages to users primarily composed of HTML and CSS over the HTTP protocol.
+
+    Role of the Application Server:
+        An Application Server generates dynamic contents by executing server-side code such as JSP, Ajax, PHP, etc.
+
+    Role of the Database:
+        The Database manages data systematically and efficiently in an organized manner, facilitating easy addition, access, update, management, and deletion of data.
+
+    Communication between Server and User's Computer Requesting the Website:
+        The server communicates through the HTTP protocol.
+
+Issues:
+
+A. SPOF (Single Point Of Failure):
+
+    Multiple single points of failures exist, beginning with having a single server housing only one web server, application server, and database. A single point of failure, if it fails, can halt the entire system.
+
+B. Downtime during Maintenance:
+
+    The downtime during maintenance, like deploying new code where the web server needs a restart, might exceed expectations. As the server depends on a single code base, its unavailability affects user access to the website's content, resulting in a poor user experience and loss of traffic.
+
+C. Scaling Limitation with High Traffic:
+
+    Due to the domain name directly pointing to the server without a load balancer, handling increased loads becomes challenging. This limitation affects the website's ability to accommodate high volumes of users, potentially leading to a poor user experience or setting a cap on user capacity.
+

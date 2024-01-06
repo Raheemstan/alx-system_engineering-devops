@@ -1,0 +1,30 @@
+image link: https://imgur.com/M9QgRs2
+
+Additional Elements:
+        Database Replica: Ensures data redundancy and failover capability.
+        Load Balancer: Distributes incoming traffic among multiple servers for improved performance and scalability.
+
+    Load Balancer Algorithm: Configured with Round Robin distribution for even traffic distribution among servers.
+
+    Active-Active/Active-Passive Setup: Employing an Active-Passive setup where the load balancer distributes traffic among active servers, and in case of failure, switches to the passive server.
+
+    Database Primary-Replica Cluster:
+        Primary Node: Handles write operations, maintaining the original dataset.
+        Replica Node: Synchronizes data from the primary node and serves as a backup. It handles read operations to reduce the load on the primary node and ensure data availability if the primary fails.
+
+Issues:
+
+    Single Points of Failure (SPOF):
+        Database Primary Server: If it fails, there might be data loss until the replica takes over.
+        Load Balancer: If it fails, the system becomes inaccessible.
+    Security Issues:
+        Lack of Firewalls: Increases vulnerability to unauthorized access.
+        No HTTPS: Data transmission is not encrypted, risking data integrity and privacy.
+    No Monitoring:
+        Absence of monitoring tools to track system health, performance, and security.
+
+Potential Improvements:
+
+    Implement Firewalls: Enhance security by configuring firewalls to filter incoming and outgoing traffic.
+    Enable HTTPS: Encrypt data transmission to protect user privacy and data integrity.
+    Implement Monitoring Tools: Deploy monitoring solutions to track system health, detect anomalies, and ensure uptime.

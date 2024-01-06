@@ -1,0 +1,51 @@
+Image link: https://imgur.com/mlI5PZa
+
+Infrastructure Components:
+
+    Server 1:
+        Web Server: Nginx
+        Application Server: Hosts application code
+        Database (Primary): MySQL
+
+    Server 2:
+        Database (Replica): MySQL replica for redundancy
+
+    Server 3:
+        Load Balancer: HAProxy
+
+Security Components:
+
+    3 Firewalls:
+        Positioned to secure the network, protecting against unauthorized access and threats.
+    SSL Certificate (HTTPS):
+        Used to encrypt traffic, ensuring data confidentiality and integrity.
+    Monitoring Clients (e.g., Sumo Logic):
+        Collect data on system performance, security, and availability for analysis and detection of anomalies.
+
+Explanation of Components:
+
+    Firewalls:
+        Added for network security, filtering incoming and outgoing traffic to prevent unauthorized access.
+    HTTPS Traffic:
+        Traffic served over HTTPS to encrypt data transmission, protecting user privacy and data integrity.
+    Monitoring Purpose:
+        Monitors system health, performance, and security to identify and address potential issues proactively.
+    Monitoring Data Collection:
+        Monitoring tools collect data by continuously gathering logs, metrics, and events from various components.
+    Web Server QPS Monitoring:
+        To monitor Web Server Queries per Second (QPS), utilize monitoring tools capable of capturing server metrics, such as request counts, response times, and throughput.
+
+Issues with Infrastructure:
+
+    Terminating SSL at Load Balancer Level:
+        It's problematic because SSL termination at the load balancer doesn't ensure end-to-end encryption, potentially exposing sensitive data.
+    Single MySQL Server for Writes:
+        It poses a single point of failure for write operations. If this server fails, write operations halt.
+    Uniform Servers with Same Components:
+        Having identical components on each server might lead to uniform failures across the infrastructure. If there's a vulnerability or issue in one component, it affects all servers, increasing the risk of a widespread outage.
+
+Potential Improvements:
+
+    Distributed SSL Termination: Implement SSL termination at the application level to ensure end-to-end encryption.
+    High-Availability Database Configuration: Set up multiple MySQL servers capable of accepting writes to prevent data unavailability due to a single point of failure.
+    Diversification of Server Components: Introduce diversity among servers by varying components to mitigate widespread failures.
