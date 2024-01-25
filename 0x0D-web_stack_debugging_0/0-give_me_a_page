@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+# This script fixes the Docker container to return a page containing Hello Holberton
+
+# Start the Docker container with port mapping
+docker run -p 8080:80 -d -it holbertonschool/265-0
+
+# Wait for the container to start
+sleep 2
+
+# Connect to the container
+docker exec -it $(docker ps -q) /bin/bash
+
+# Install Apache if not already installed
+apt-get update
+apt-get install -y apache2
+
+# Create a simple HTML page
+echo "<html><body>Hello Holberton</body></html>" > /var/www/html/index.html
+
+# Restart Apache
+service apache2 restart
