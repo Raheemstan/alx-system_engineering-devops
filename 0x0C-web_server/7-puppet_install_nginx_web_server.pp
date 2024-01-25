@@ -1,23 +1,28 @@
 # Install nginx with puppet
-package { 'nginx':
-  ensure   => '1.18.0',
-  provider => 'apt',
+
+# Install Nginx module
+class { 'nginx':
+  manage_repo => true,
 }
 
-file { 'Hello World':
-  path    => '/var/www/html/index.nginx-debian.html',
-  content => 'Hello World',
-}
-
-file_line { 'Hello World':
-  path  => '/etc/nginx/sites-available/default',
-  after => 'server_name _;',
-  line  => '\trewrite ^/redirect_me https://www.youtube.com/watch?v=QH2-TGUlwu4 permanent;',
-}
-
-exec { 'service':
-  command  => 'service nginx start',
-  provider => 'shell',
-  user     => 'root',
-  path     => '/usr/sbin/service',
+# Define Nginx server configuration
+nginx::resource::vhost { 'default':
+  listen_port    => 80,
+  server_name    => '_',
+  www_root       => '/var/www/html',
+  index_files    => ['index.html'],
+  error_log_path => '/var/log/nginx/error.log',
+  access_log_path => '/var/log/nginx/access.log',
+  locations      => {
+    '/' => {
+      content => 'Hello World!',
+    },
+    '/redirect_me' => {
+      ensure   => present,
+      location => {
+        try_files => '$uri $uri/ =404',
+        return    => '301 http://$host/',
+      },
+    },
+  },
 }
