@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
-# This script fixes Nginx not listening on port 80
-sudo sed -i '/listen 80 default_server;/c\listen 80;' /etc/nginx/sites-available/default
+# configures a server to listening on port 80 of all server's active IPv4 IPs
+sudo sed -i "s/8080/80/" /etc/nginx/sites-enabled/default
 sudo service nginx restart
